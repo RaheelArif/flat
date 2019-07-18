@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
 import TextField from '@material-ui/core/TextField';
 import CreatePost from './createPost';
+import {connect} from "react-redux"
 
 
  class ContactForm extends Component {
@@ -27,6 +27,7 @@ console.log(this.state)
                email: this.state.Email,
                message: this.state.Message,
                subject: this.state.Subject,
+               user:this.props.user
            }
 
             console.log(message)
@@ -41,13 +42,14 @@ console.log(this.state)
         .then(res=>{
             if(res.success)
             {
-                console.log(res)
+                alert("message sended");
                 this.setState({
-                    Name: undefined,
-                    Email: undefined,
-                    Message: undefined,
-                    Subject: undefined,
+                    Name: "",
+                    Email: "",
+                    Message: "",
+                    Subject: "",
                     })
+                    
             }
         })
         .catch(err=>console.log(err));
@@ -60,7 +62,9 @@ console.log(this.state)
 
         return (
             <div>
-            <form  autoComplete="off" onSubmit={this.handleClick}>
+            {
+                this.props.user._id&&<div>
+                <form  autoComplete="off" onSubmit={this.handleClick}>
 
                 <TextField
                     id="outlined-full-width"
@@ -78,6 +82,7 @@ console.log(this.state)
 
                     }}
                     required
+                    value={this.state.Name}
                 />
                 <TextField
                     id="outlined-full-width"
@@ -93,6 +98,7 @@ console.log(this.state)
                     }}
                     required
                     type="email"
+                    value={this.state.Email}
                 />
                 <TextField
                     id="outlined-full-width"
@@ -107,9 +113,9 @@ console.log(this.state)
                         shrink: true,
                     }}
                     required
+                    value={this.state.Subject}
                 />
                 <TextField
-                    id="outlined-multiline-flexible"
                     multiline
                     fullWidth
                     style={{ margin: 8 }}
@@ -119,13 +125,22 @@ console.log(this.state)
                     onChange={this.handleChange}
                     placeholder="Message"
                     required
+                    value={this.state.Message}
 
                 />
      <button className="search-btn" type="submit">Send Message</button> 
             </form>
-                <CreatePost approved={false} />
+            <CreatePost approved={true} /></div>
+            ||
+            <p>Log in Please</p>
+        }
                 </div>
         );
     }
 }
-export default ContactForm;
+const mapStateToProps=(store)=>{
+    return{
+        user:store.userReducer
+    }
+}
+export default connect(mapStateToProps)(ContactForm);

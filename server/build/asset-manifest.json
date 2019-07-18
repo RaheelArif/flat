@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/static/css/main.05f7a90f.chunk.css",
+    "main.js": "/static/js/main.33ebb9ec.chunk.js",
+    "main.js.map": "/static/js/main.33ebb9ec.chunk.js.map",
+    "runtime~main.js": "/static/js/runtime~main.a8a9905a.js",
+    "runtime~main.js.map": "/static/js/runtime~main.a8a9905a.js.map",
+    "static/css/2.cdaf15d1.chunk.css": "/static/css/2.cdaf15d1.chunk.css",
+    "static/js/2.726a074d.chunk.js": "/static/js/2.726a074d.chunk.js",
+    "static/js/2.726a074d.chunk.js.map": "/static/js/2.726a074d.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.f7397911eb63829b2c8eeb4fcd63073a.js": "/precache-manifest.f7397911eb63829b2c8eeb4fcd63073a.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.cdaf15d1.chunk.css.map": "/static/css/2.cdaf15d1.chunk.css.map",
+    "static/css/main.05f7a90f.chunk.css.map": "/static/css/main.05f7a90f.chunk.css.map",
+    "static/media/about.jpg": "/static/media/about.a78194cd.jpg",
+    "static/media/footer1.jpg": "/static/media/footer1.335f3401.jpg",
+    "static/media/footer2.jpg": "/static/media/footer2.1bfa7274.jpg",
+    "static/media/footer3.jpg": "/static/media/footer3.94ab2d07.jpg",
+    "static/media/house.jpg": "/static/media/house.ee8748ad.jpg",
+    "static/media/person3.jpg": "/static/media/person3.225f1d5b.jpg",
+    "static/media/App.css": "/static/media/property.e14f856b.png",
+    "static/media/slick-theme.css": "/static/media/slick.f97e3bbf.svg"
+  }
+}

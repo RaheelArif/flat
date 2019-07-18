@@ -1,11 +1,12 @@
 import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles,withStyles, } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom"
-const useStyles = makeStyles(theme => ({
+import { connect } from 'react-redux';
+const useStyles = theme => ({
   root: {
     flexGrow: 1,
   },
@@ -15,11 +16,44 @@ const useStyles = makeStyles(theme => ({
   title: {
     flexGrow: 1,
   },
-}));
+});
 
-export default function Header() {
-  const classes = useStyles();
-
+ class Header extends React.Component {
+   componentWillMount(){
+    fetch("http://localhost:900/user/authenticate",{
+            method:"POST",
+            body:"",
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+        .then(res=>res.json())
+        .then(res=>{
+            if(res.success)
+            {
+                this.props.dispatch({type:"ADD_USER",payload:res.user})
+                alert("loggedin");
+            }
+        })
+        .catch(err=>console.log(err));
+        fetch("http://localhost:900/property/getallproperty",{
+            method:"POST",
+            body:"",
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+        .then(res=>res.json())
+        .then(res=>{
+            if(res.success)
+            {
+                this.props.dispatch({type:"ADD_Property",payload:res.properties})
+            }
+        })
+        .catch(err=>console.log(err));
+   }
+   render(){
+     const {classes}=this.props
   return (
     <div className={classes.root}>
       <AppBar position="static">
@@ -38,4 +72,6 @@ export default function Header() {
       </AppBar>
     </div>
   );
+        }
 }
+export default connect()(withStyles(useStyles)(Header));

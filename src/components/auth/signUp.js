@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import TextField from '@material-ui/core/TextField';
-
+import {withRouter} from "react-router-dom";
 class SignUp extends Component {
     state = {
         email: undefined,
         password: undefined,
-        user: undefined,
+        phone:undefined,
+        name:undefined,
         alreadyTaken: false
     }
     handleChange = (e) => {
@@ -19,14 +20,41 @@ class SignUp extends Component {
         e.preventDefault();
         const newUser = {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            phone:this.state.phone,
+            name:this.state.name
         }
-        this.setState({
-            user: newUser,
-
-            email: undefined,
-            password: undefined
+        console.log(newUser)
+        fetch("http://localhost:900/user/register",{
+            method:"POST",
+            body:JSON.stringify(newUser),
+            headers:{
+                "Content-Type":"application/json"
+            }
         })
+        .then(res=>res.json())
+        .then(res=>{
+            if(res.success)
+            {
+                console.log(res)
+                alert("registered");
+                this.setState({
+                    email: undefined,
+                    password: undefined,
+                    phone:undefined,
+                    name:undefined,
+                })
+                this.props.history.push("/login")
+            }
+            else if(res.used)
+            {
+                this.setState({
+                    alreadyTaken:true
+                })
+            }
+        })
+        .catch(err=>console.log(err));
+       
     }
     render() {
         return (
@@ -35,7 +63,7 @@ class SignUp extends Component {
 
 
 
-                    <form className="login-form">
+                    <form className="login-form" onSubmit={this.handleClick} >
                         <TextField
                             id="outlined-full-width"
                             className="contact-input"
@@ -65,6 +93,7 @@ class SignUp extends Component {
                                 shrink: true,
 
                             }}
+                            type="number"
                         />
                         <TextField
                             id="outlined-full-width"
@@ -80,8 +109,9 @@ class SignUp extends Component {
                                 shrink: true,
 
                             }}
+                            type="email"
                         />
-                        {this.state.alreadyTaken === true ? <p className="taken">email already exist</p> : null}
+                        {this.state.alreadyTaken === true ? <p className="taken">Email already exist</p> : null}
 
                         <TextField
                             id="outlined-full-width"
@@ -97,9 +127,10 @@ class SignUp extends Component {
                                 shrink: true,
 
                             }}
+                            type="password"
                         />
 
-                        <button className="signup-button">Sign Up</button>
+                        <button className="signup-button" type="submit">Sign Up</button>
                     </form>
                 </div>
             </div>
@@ -107,4 +138,4 @@ class SignUp extends Component {
         )
     }
 }
-export default SignUp;
+export default withRouter(SignUp);
