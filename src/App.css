@@ -201,3 +201,59 @@ transition: 0.5s;
 .create-prodect-select:focus{
 border-color: rgb(61, 81, 181);
 }
+.login-button{
+  padding: 20px;
+  background-color: rgb(61, 81, 181);
+  color: white;
+  font-weight: bold;
+  margin: 10px;
+  margin-bottom: 0px;
+  border: none;
+  border-radius: 15px;
+
+
+}
+.login-button:hover{
+  background-color: rgb(16, 21, 49);
+  transition: 1s;
+
+
+
+}
+.taken{
+  margin: 0px 8px;
+  color: red;
+}
+.signup-button{
+  padding: 20px;
+  background-color: rgb(5, 247, 255);
+  color: black;
+  font-weight: bold;
+  margin: 10px;
+  margin-bottom: 0px;
+  border: none;
+  border-radius: 15px;
+
+}
+.signup-button:hover{
+  background-color: rgb(3, 127, 131);
+transition: 1s;
+
+}
+.login-container{
+  display: flex;
+  justify-content: center; 
+  padding: 20px;
+  height: 500px;
+  align-items: flex-start;
+}
+.login-form{
+  padding: 20px;
+background-color: white;
+border-radius: 10px;
+}
+.login-container2{
+  padding: 20px;
+  background-image: linear-gradient(to right, rgb(61, 81, 181) , rgb(5, 247, 255));
+  
+}

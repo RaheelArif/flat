@@ -31,9 +31,9 @@ export default function Header() {
         <Link className="nav-logo" to="/">  Real Estate</Link>
           </Typography>
           <Link className="nav-link" to="/"> <Button color="inherit">Home</Button></Link>
-          <Link className="nav-link" to="about"> <Button color="inherit">About us</Button></Link>
-          <Link className="nav-link" to="Contact"> <Button color="inherit">Contact</Button></Link>
-          <Link className="nav-link" to="Login"> <Button color="inherit">Login</Button></Link>
+          <Link className="nav-link" to="/about"> <Button color="inherit">About us</Button></Link>
+          <Link className="nav-link" to="/Contact"> <Button color="inherit">Contact</Button></Link>
+          <Link className="nav-link" to="/Login"> <Button color="inherit">Login</Button></Link>
         </Toolbar>
       </AppBar>
     </div>
