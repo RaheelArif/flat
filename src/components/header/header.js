@@ -5,6 +5,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import {Link} from "react-router-dom"
+import Admin from "../header/admin"
+import User from "../header/user"
 const useStyles = makeStyles(theme => ({
   root: {
     flexGrow: 1,
@@ -34,6 +36,8 @@ export default function Header() {
           <Link className="nav-link" to="/about"> <Button color="inherit">About us</Button></Link>
           <Link className="nav-link" to="/Contact"> <Button color="inherit">Contact</Button></Link>
           <Link className="nav-link" to="/Login"> <Button color="inherit">Login</Button></Link>
+           <Admin />
+          <User /> 
         </Toolbar>
       </AppBar>
     </div>
