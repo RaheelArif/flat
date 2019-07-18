@@ -10,6 +10,8 @@ state ={
     Email: undefined,
     Message: undefined,
     Subject: undefined,
+    Property:false,
+    id:undefined
 }
 
 handleChange =(e) => {
@@ -18,20 +20,37 @@ this.setState({
 })
 console.log(this.state)
 }
-        handleClick =()=> {
+        handleClick =(e)=> {
+            e.preventDefault()
            const message = {
-               Name: this.state.Name,
-               Email: this.state.Email,
-               Message: this.state.Message,
-               Subject: this.state.Subject,
+               name: this.state.Name,
+               email: this.state.Email,
+               message: this.state.Message,
+               subject: this.state.Subject,
            }
-            this.setState({
-            Name: undefined,
-            Email: undefined,
-            Message: undefined,
-            Subject: undefined,
-            })
-            
+
+            console.log(message)
+            fetch("http://localhost:900/messages/addmessage",{
+            method:"POST",
+            body:JSON.stringify(message),
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+        .then(res=>res.json())
+        .then(res=>{
+            if(res.success)
+            {
+                console.log(res)
+                this.setState({
+                    Name: undefined,
+                    Email: undefined,
+                    Message: undefined,
+                    Subject: undefined,
+                    })
+            }
+        })
+        .catch(err=>console.log(err));
         }
 
     render() {
@@ -40,7 +59,8 @@ console.log(this.state)
   
 
         return (
-            <form  autoComplete="off">
+            <div>
+            <form  autoComplete="off" onSubmit={this.handleClick}>
 
                 <TextField
                     id="outlined-full-width"
@@ -57,6 +77,7 @@ console.log(this.state)
                         shrink: true,
 
                     }}
+                    required
                 />
                 <TextField
                     id="outlined-full-width"
@@ -70,6 +91,8 @@ console.log(this.state)
                     InputLabelProps={{
                         shrink: true,
                     }}
+                    required
+                    type="email"
                 />
                 <TextField
                     id="outlined-full-width"
@@ -83,6 +106,7 @@ console.log(this.state)
                     InputLabelProps={{
                         shrink: true,
                     }}
+                    required
                 />
                 <TextField
                     id="outlined-multiline-flexible"
@@ -94,11 +118,13 @@ console.log(this.state)
                     variant="outlined"
                     onChange={this.handleChange}
                     placeholder="Message"
+                    required
 
                 />
-     <button className="search-btn" onClick={this.handleClick}>Send Message</button>
-                <CreatePost />
+     <button className="search-btn" type="submit">Send Message</button> 
             </form>
+                <CreatePost approved={false} />
+                </div>
         );
     }
 }
