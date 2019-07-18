@@ -32,9 +32,6 @@ class SignUp extends Component {
         return (
             <div className="login-container">
                 <div className="login-container2">
-
-
-
                     <form className="login-form">
                         <TextField
                             id="outlined-full-width"
