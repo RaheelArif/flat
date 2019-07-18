@@ -1,0 +1,91 @@
+.comment-box-r{
+    border: 2px solid #3246fb;
+    padding: 30px 40px 36px 0px;
+    display: flex;
+    min-width: 260px;
+    margin-top: 40px;
+
+}
+.comment-r{
+    display: flex;
+    font-style: italic;
+    font-size: 18px;
+    color: rgba(0,0,0,.7);
+    
+}
+.quotes-r{
+    display: flex;
+    padding: 13px 20px 0px 0px;
+    margin-left: 10px;
+    width: 40px;
+    justify-content: center;
+    align-items: flex-start;
+}
+.slider-r{
+    display: flex;
+    min-width:340px;
+}
+.person-area-r{
+    display: flex;
+    flex-direction: row;
+    margin-top: 20px;
+}
+.photo-r{
+    width: 70px;
+    height: 70px;
+}
+.adress-r{
+    display:flex;
+    flex-direction: column;
+    margin-left: 20px;
+}
+.name-r{
+    display: flex;
+    font-size: 18px;
+    font-weight: 700;
+    font-style: normal;
+
+}
+.rank-r{
+    display: flex;
+    font-style: normal;
+    color: #999;
+}
+.link-r{
+
+    display: flex;
+    color: #111;
+    text-decoration: none;
+    font-weight: 430;
+}
+.slider-r:focus{
+    border:none;
+    outline: none;
+}
+
+.slick-slide div {
+    outline: none;
+}
+.slick-dots{
+    position: absolute;
+    text-align: right;
+    list-style-type: none;
+}
+
+.slick-dots li button:before{
+    content: none;
+}
+.slick-dots li{
+    list-style-type: none;
+    background-color: #ddd;
+     width: 30px;
+     height: 5px;
+     margin-bottom: 60px;
+}
+.slick-dots li:hover{
+    background-image: linear-gradient(to right, rgb(1, 32, 185) , rgb(2, 164, 170));
+}
+.slick-dots .slick-active{
+    background-image: linear-gradient(to right, rgb(1, 32, 185) , rgb(2, 164, 170));
+}
+
