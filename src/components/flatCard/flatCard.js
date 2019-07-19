@@ -6,6 +6,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {Grid } from "@material-ui/core";
+import {Link} from "react-router-dom"
 
 
 export default function MediaCard(props) {
@@ -17,8 +18,9 @@ const {property}=props;
   property.description = property.description.slice(0, 87) + "...";
 } 
   return (
-    <Grid item lg={4} >
+    <Grid item lg={4} md={4} xl={4}>
     <Card className="flat-card">
+    <Link to="/propert/:id">
       <CardActionArea>
         <CardMedia
           className="card-image"
@@ -39,10 +41,21 @@ const {property}=props;
          <span>bedrooms:{property.bedrooms}</span>
          <span>price:{property.price}</span>
       </CardActions>
-      {/* <CardActions>
+      </Link>
+      {
+
+(props.approve_but||props.del_but)?<CardActions>
+        {
+          props.approve_but&&
               <button className="approve">approve post</button>
+        }
+         {
+          props.del_but&&
               <button className="delete">delete post</button>
-      </CardActions> */}
+        }
+      </CardActions>
+      :null
+      }
     </Card>
     </Grid>
   );
