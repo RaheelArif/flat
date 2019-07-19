@@ -57,6 +57,21 @@ class Login extends Component {
                 }
             })
             .catch(err=>console.log(err));
+            fetch("http://localhost:900/bids/getallbids",{
+            method:"POST",
+            body:"",
+            headers:{
+                "Content-Type":"application/json"
+            }
+        })
+        .then(res=>res.json())
+        .then(res=>{
+            if(res.success)
+            {
+                this.props.dispatch({type:"ADD_BID",payload:res.bids})
+            }
+        })
+        .catch(err=>console.log(err));
         }
         else{
         const newUser = {

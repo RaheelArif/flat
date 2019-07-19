@@ -20,7 +20,7 @@ const {property}=props;
   return (
     <Grid item lg={4} md={4} xl={4}>
     <Card className="flat-card">
-    <Link to="/propert/:id">
+    <Link to={"/propert/"+property._id} style={{textDecoration:"none"}}>
       <CardActionArea>
         <CardMedia
           className="card-image"
