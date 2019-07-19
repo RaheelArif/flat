@@ -69,7 +69,7 @@ class CreatePost extends Component {
 
         return (
             <form autoComplete="off" onSubmit={this.handleClick} >
-
+                  <h1>Create Post</h1>
                 <TextField
                     id="outlined-full-width"
                     className="contact-input"
@@ -168,9 +168,9 @@ class CreatePost extends Component {
                     <option value="Chennai">Chennai</option>
                     <option value="Kolkata" >Kolkata</option>
                 </select>
-                <input type="file" name="image" style={{margin:"20px"}} required id="image"/>
+                <input type="file" name="image" style={{margin:"20px", padding:"10px"}} required id="image"/>
                 
-     <button className="search-btn" type="submit" >Add property</button>
+             <button className="search-btn" type="submit" >Add property</button>
                 
             </form>
         );

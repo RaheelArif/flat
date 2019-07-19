@@ -80,23 +80,24 @@ const StyledMenuItem = withStyles(theme => ({
       
       >
         <StyledMenuItem>
-          <ListItemIcon>
-            <SendIcon />
-          </ListItemIcon>
-        <Link to="/pendingrequests">  <ListItemText primary="Pending Requests" /></Link>
+        <Link style={{textDecoration:"none" , color: "black"}} to="/pendingrequests">  <ListItemText primary="Pending Requests" /></Link>
+        </StyledMenuItem>   
+        
+         <StyledMenuItem>
+        <Link style={{textDecoration:"none" , color: "black"}} to="/createpostadmin">  <ListItemText primary="Create Post" /></Link>
         </StyledMenuItem>
+
         <StyledMenuItem>
-          <ListItemIcon>
-            <DraftsIcon />
-          </ListItemIcon>
-          <Link to="/messages">     <ListItemText primary="Messages" /></Link>
+          <Link style={{textDecoration:"none" , color: "black"}} to="/messages">     <ListItemText primary="Messages" /></Link>
+        </StyledMenuItem>       
+         <StyledMenuItem>
+          <Link style={{textDecoration:"none" , color: "black"}} to="/messages">     <ListItemText primary="Bids" /></Link>
         </StyledMenuItem>
+
         <StyledMenuItem onClick={logout}>
-          <ListItemIcon>
-            <InboxIcon />
-          </ListItemIcon>
           <ListItemText primary="LogOut" />
         </StyledMenuItem>
+
       </StyledMenu>
     </div>
   );

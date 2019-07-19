@@ -333,3 +333,33 @@ border-radius: 10px;
   transition: 1s;
   border-color: rgb(4, 4, 48);
 }
+.login-plz{
+  color: red;
+  text-align: center;
+  font-size: 25px;
+  font-weight: bold;
+}
+.user-messages{
+  flex-wrap: wrap; 
+  border: 2px solid black;
+  width: 504px;
+}
+.user-gmail{
+  padding: 20px;
+  
+
+}
+.user-gmaile{
+  padding: 20px;
+  font-weight: bold;
+  color: rgb(33, 33, 75);
+
+}
+.user-name{
+  color: blue;
+}
+.message-c{
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}

@@ -15,7 +15,7 @@ class About extends Component {
                         <h3>When you look for a property, it’s not just a better home you seek, it’s a better future.</h3>
                         <p>Real Estate is a high-end property portal that caters to a global market with its unique services and novel online features. Having been launched in the year 2019 by Group, Real Estate has quickly risen to being the No. 1 Property Portal in India.
 
-The Real Estate design is based on rigorous research, unique product developments, and innovative initiative which has been readily accepted by users. In an attempt to best serve the users, features on the Real Estate realty portal are constantly invented, evaluated and upgraded.
+                       The Real Estate design is based on rigorous research, unique product developments, and innovative initiative which has been readily accepted by users. In an attempt to best serve the users, features on the Real Estate realty portal are constantly invented, evaluated and upgraded.
                     </p>
                     </div>
                     <div className="about-right">

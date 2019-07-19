@@ -130,9 +130,9 @@ console.log(this.state)
                 />
      <button className="search-btn" type="submit">Send Message</button> 
             </form>
-            <CreatePost approved={true} /></div>
+            <CreatePost approved={false} /></div>
             ||
-            <p>Log in Please</p>
+            <p className="login-plz"> Please Login To Create Post</p>
         }
                 </div>
         );
