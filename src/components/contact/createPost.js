@@ -161,14 +161,14 @@ class CreatePost extends Component {
                                      onChange={this.handleChange}
                                      value={this.state.City}
                  >
-                      <option value="" selected disabled hidden>City</option>
+                    <option value="" selected disabled hidden>City</option>
                     <option value="Mumbai">Mumbai</option>
                     <option value="Bengaluru" >Bengaluru</option>
                     <option value="Hyderabad">Hyderabad</option>
                     <option value="Chennai">Chennai</option>
                     <option value="Kolkata" >Kolkata</option>
                 </select>
-                <input type="image" name="image" style={{margin:"20px"}} required id="image"/>
+                <input type="file" name="image" style={{margin:"20px"}} required id="image"/>
                 
      <button className="search-btn" type="submit" >Add property</button>
                 

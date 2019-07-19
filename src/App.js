@@ -10,6 +10,7 @@ import Login from './components/auth/login';
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import PendingRewuest from './components/header/admin/pendingRequests';
 import Messages from './components/header/admin/Messages';
+import viewFlatCard from './components/flatCard/viewFlatCard';
 function App() {
   return (
     <BrowserRouter>
@@ -23,6 +24,7 @@ function App() {
          <Route path="/signup" component= {SignUp} />
          <Route path="/pendingrequests" component= {PendingRewuest} />
          <Route path="/messages" component= {Messages} />
+         <Route path="/propert/:id" component={viewFlatCard} />
 
         </Switch>
         <Footer />

@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import FlatCard from "./flatCard"
+import {Link} from "react-router-dom"
 import {connect} from "react-redux"
 import {Grid} from "@material-ui/core"
 class ThreeCardList extends Component {
@@ -18,16 +19,14 @@ changeView=()=>{
         return (
             <div className="three-flat-card">
                 <h1>Search Your Dream Home</h1>
-                {/* <div className="row"> */}
                     <Grid container lg={10}>
                 {
                     this.props.properties.length>0&&this.props.properties.map((prop,key)=>{
                         if(key<this.state.view)
-                        return <FlatCard property={prop}/>
+                        return <Link to="/propert/:id"><FlatCard property={prop}/></Link> 
                     })
     }
                 </Grid>           
-                {/* </div> */}
                 <button className="search-btn" onClick={this.changeView}>View More </button>  
              </div>
         )
