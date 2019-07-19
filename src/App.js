@@ -7,8 +7,9 @@ import About from './components/about/about';
 import Contact from "./components/contact/contant";
 import SignUp from './components/auth/signUp';
 import Login from './components/auth/login';
-
 import { BrowserRouter, Switch, Route } from "react-router-dom";
+import PendingRewuest from './components/header/admin/pendingRequests';
+import Messages from './components/header/admin/Messages';
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +21,9 @@ function App() {
          <Route path="/contact" component= {Contact} />
          <Route path="/login" component= {Login} />
          <Route path="/signup" component= {SignUp} />
+         <Route path="/pendingrequests" component= {PendingRewuest} />
+         <Route path="/messages" component= {Messages} />
+
         </Switch>
         <Footer />
       </div>

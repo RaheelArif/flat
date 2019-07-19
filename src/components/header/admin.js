@@ -8,7 +8,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
-
+import {Link} from "react-router-dom"
 const StyledMenu = withStyles({
   paper: {
     border: '1px solid #d3d4d5',
@@ -57,10 +57,10 @@ export default function CustomizedMenus() {
         aria-controls="customized-menu"
         aria-haspopup="true"
         variant="contained"
-        color="primary"
         onClick={handleClick}
+        className="admin-btn"
       >
-        Open Menu
+admin name
       </Button>
       <StyledMenu
         id="customized-menu"
@@ -68,24 +68,25 @@ export default function CustomizedMenus() {
         keepMounted
         open={Boolean(anchorEl)}
         onClose={handleClose}
+      
       >
         <StyledMenuItem>
           <ListItemIcon>
             <SendIcon />
           </ListItemIcon>
-          <ListItemText primary="Sent mail" />
+        <Link to="/pendingrequests">  <ListItemText primary="Pending Requests" /></Link>
         </StyledMenuItem>
         <StyledMenuItem>
           <ListItemIcon>
             <DraftsIcon />
           </ListItemIcon>
-          <ListItemText primary="Drafts" />
+          <Link to="/messages">     <ListItemText primary="Messages" /></Link>
         </StyledMenuItem>
         <StyledMenuItem>
           <ListItemIcon>
             <InboxIcon />
           </ListItemIcon>
-          <ListItemText primary="Inbox" />
+          <ListItemText primary="LogOut" />
         </StyledMenuItem>
       </StyledMenu>
     </div>

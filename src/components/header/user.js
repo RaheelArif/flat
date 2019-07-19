@@ -59,6 +59,7 @@ export default function CustomizedMenus() {
         variant="contained"
         color="primary"
         onClick={handleClick}
+        className="admin-btn"
       >
         Open Menu
       </Button>
