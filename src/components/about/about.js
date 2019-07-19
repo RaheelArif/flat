@@ -12,10 +12,10 @@ class About extends Component {
                 <div className="about">
                     <div className="about-left">
                         <h1>About Real Estate</h1>
-                        <h3>Our mission: To motivate and inspire people to get living the life they deserve.</h3>
                         <h3>When you look for a property, it’s not just a better home you seek, it’s a better future.</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam labore eos quasi voluptas itaque harum ullam quis fugiat animi necessitatibus, architecto delectus mollitia, nam culpa nobis doloribus nostrum minus at.
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus aliquid explicabo obcaecati, officiis, quod sequi possimus dicta minima nam quo odit, ea dignissimos vitae quibusdam quasi veritatis at ut maxime!
+                        <p>Real Estate is a high-end property portal that caters to a global market with its unique services and novel online features. Having been launched in the year 2019 by Group, Real Estate has quickly risen to being the No. 1 Property Portal in India.
+
+The Real Estate design is based on rigorous research, unique product developments, and innovative initiative which has been readily accepted by users. In an attempt to best serve the users, features on the Real Estate realty portal are constantly invented, evaluated and upgraded.
                     </p>
                     </div>
                     <div className="about-right">
