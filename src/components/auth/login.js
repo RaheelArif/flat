@@ -25,7 +25,6 @@ class Login extends Component {
         if(this.state.email===this.admin.email&&this.state.password===this.admin.password)
         {
             this.props.dispatch({type:"ADD_ADMIN",payload:this.admin})
-            alert("loggedin");
             this.props.history.push("/");
             fetch("http://localhost:900/property/getall",{
                 method:"POST",

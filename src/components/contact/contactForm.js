@@ -62,6 +62,7 @@ console.log(this.state)
 
         return (
             <div>
+                <h1>Contact Us</h1>
             {
                 this.props.user._id&&<div>
                 <form  autoComplete="off" onSubmit={this.handleClick}>
@@ -130,10 +131,12 @@ console.log(this.state)
                 />
      <button className="search-btn" type="submit">Send Message</button> 
             </form>
+            <hr />
             <CreatePost approved={false} /></div>
             ||
             <p className="login-plz"> Please Login To Create Post</p>
         }
+     
                 </div>
         );
     }

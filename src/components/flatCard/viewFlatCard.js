@@ -80,15 +80,16 @@ class ViewFlatCard extends Component {
                         </div>
                         <div className="v-p-border">
                             <div className="view-properties">
-                                <h3>{this.getdate(post.date,post.timeLimit)}</h3>
                                 <span className="view-span">Bedrooms : <span className="view-value">{post.bathrooms}</span></span>
                                 <span className="view-span">Bathrooms : <span className="view-value">{post.bedrooms}</span></span>
                                 <span className="view-span">City : <span className="view-value">{post.city}</span></span>
-                                <span className="view-span">Price : <span className="view-value">{post.price}</span></span>
+                                <span className="view-span">Price : <span className="view-value">{post.price} INR</span></span>
                                 <span className="view-span">Purpose : <span className="view-value">{post.purpose}</span></span>
                             </div>
                         </div>
                         <div style={{ marginTop: "20px" }}>
+                        <h3 style={{display: "inline", marginRight: "20px"}}>Please Bid before expire at {this.getdate(post.date,post.timeLimit)} </h3>
+
                             <input className="offer" type="number" id="bidprice" />
                             <button className="offer-btn" onClick={()=>this.bid(post)}>Bid</button>
                         </div>

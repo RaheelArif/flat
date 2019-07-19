@@ -71,7 +71,7 @@ const editprop=(property)=>{
       <CardActions className="card-footer">
          <span>bathroom:{property.bathrooms}</span>
          <span>bedrooms:{property.bedrooms}</span>
-         <span>price:{property.price}</span>
+         <span>INR: {property.price} </span>
       </CardActions>
       </Link>
       {
