@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import TextField from '@material-ui/core/TextField';
-import { Link } from "react-router-dom";
-
+import { Link ,withRouter} from "react-router-dom";
+import { connect } from 'react-redux'
 class Login extends Component {
     state = {
         email: undefined,
@@ -20,14 +20,33 @@ class Login extends Component {
         e.preventDefault();
         const newUser = {
             email: this.state.email,
-            password: this.state.password
+            password: this.state.password,
+            success:true
         }
-        this.setState({
-            user: newUser,
-           
-            email: undefined,
-            password: undefined
+        console.log(newUser);
+        fetch("http://localhost:900/user/login",{
+            method:"POST",
+            body:JSON.stringify(newUser),
+            headers:{
+                "Content-Type":"application/json"
+            }
         })
+        .then(res=>res.json())
+        .then(res=>{
+            if(res.success)
+            {
+                this.props.dispatch({type:"ADD_USER",payload:res.user})
+                alert("loggedin");
+                this.setState({
+                    email: undefined,
+                    password: undefined,
+                })
+                this.props.history.push("/");
+            }
+            else
+            this.setState({success:false})
+        })
+        .catch(err=>console.log(err));
     }
     render() {
         return (
@@ -36,7 +55,8 @@ class Login extends Component {
 
                 
 
-                <form className="login-form">
+                <form className="login-form" onSubmit={this.handleClick}>
+                {this.state.success === false ? <p className="taken">Email or Password is Incorrect</p> : null}
                     <TextField
                         id="outlined-full-width"
                         className="contact-input"
@@ -49,8 +69,8 @@ class Login extends Component {
                         onChange={this.handleChange}
                         InputLabelProps={{
                             shrink: true,
-
                         }}
+                        type="email"
                     />
                     <TextField
                         id="outlined-full-width"
@@ -64,11 +84,11 @@ class Login extends Component {
                         onChange={this.handleChange}
                         InputLabelProps={{
                             shrink: true,
-
                         }}
+                        type="password"
                     />
 
-                    <button className="login-button" onClick={this.handleClick}>Login</button>
+                    <button className="login-button" >Login</button>
                     <Link to="/signup"><button className="signup-button">Sign Up</button></Link>
                 </form>
             </div>
@@ -76,4 +96,4 @@ class Login extends Component {
         )
     }
 }
-export default Login;
+export default withRouter(connect()(Login));

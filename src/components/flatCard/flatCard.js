@@ -10,30 +10,29 @@ import Typography from '@material-ui/core/Typography';
 import house from "../../images/house.jpg";
 
 
-export default function MediaCard() {
-
+export default function MediaCard(props) {
+const {property}=props;
   return (
     <Card className="flat-card">
       <CardActionArea>
         <CardMedia
           className="card-image"
-          image={house}
+          image={"http://localhost:900"+property.file}
           title="Contemplative Reptile"
         />
         <CardContent className="flat-card-content">
           <Typography gutterBottom variant="h5" component="h2">
-            city
+            {property.city}
           </Typography>
           <Typography variant="body2" color="textSecondary" component="p">
-            Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-            across all continents except Antarctica
+           {property.title}
           </Typography>
         </CardContent>
       </CardActionArea>
       <CardActions className="card-footer">
-         <span>bathroom</span>
-         <span>bedrooms</span>
-         <span>price</span>
+         <span>bathroom:{property.bathrooms}</span>
+         <span>bedrooms:{property.bedrooms}</span>
+         <span>price:{property.price}</span>
       </CardActions>
     </Card>
   );

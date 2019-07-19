@@ -30,8 +30,7 @@ function FullWidthGrid(props) {
         <Grid container className={classes.container}>
 
             <Grid item style={{flexDirection: "column"}} xs={9} >
-                <h1 className={classes.h1} >Testimonials</h1>
-                <p className={classes.p}>Creating a sustainable future through building preservation, green architecture, and smart design.</p>
+                <h1 className={classes.h1} >Our Top Customer Review</h1>
             </Grid>
             <Grid  item xs={9}>
                  <Slider />

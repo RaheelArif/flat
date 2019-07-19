@@ -6,7 +6,7 @@ import "./style.css"
 import quotes from "./images/quotes.png"
 import person1 from "./images/person1.jpg"
 import person2 from "./images/person2.jpg"
-import person3 from "./images/person3.jpg"
+import person3 from "./images/person3.png"
 export default class SimpleSlider extends Component {
   render() {
     const settings = {
@@ -21,12 +21,12 @@ export default class SimpleSlider extends Component {
         <div  >
           <div className="comment-box-r">
             <div className="quotes-r"><img className="personim-r" src={quotes} alt="quotes" /></div>
-            <div className="comment-r"> I  have used the services of your company on a few occasions. Your crews are always personable, prompt and efficient. The work performed has been very good and as described. Highly recommend to every one</div>
+            <div className="comment-r"> I  have used the services of your company on a few occasions and sell and buy many houses and from this place .i know if any house i have to sale or purchase this is the right place foe me  Highly recommend to every one</div>
           </div>
           <div className="person-area-r">
             <img className="photo-r" src={person1} alt="person1" />
             <cite className="adress-r">
-              <span className="name-r">Hafiz Mudassir</span>
+              <span className="name-r">Khushal Das</span>
               <span className="rank-r">IT Officers</span>
               {/* <a className="link" rel="noopener noreferrer" target="_blank" href="https://thememove.com/">https://thememove.com</a> */}
             </cite>
@@ -38,12 +38,12 @@ export default class SimpleSlider extends Component {
             <div className="quotes-r">
               <img src={quotes} alt="quotes" />
             </div>
-            <div className="comment-r">i'm from fsd. Your crews work more than expected. Even I call at early morning or at night they come and do the work prompt and effective. They are friendly and has a careful style of work. I am satisfy and recommend other to use your service.</div>
+            <div className="comment-r">i'm from  Hyderabad. i have purchase an flat few days ago it was 100% correct as mentioned in the detail . I am satisfy and recommend other to use your service.</div>
           </div>
           <div className="person-area-r">
             <img className="photo-r" src={person2} alt="person1" />
             <cite className="adress-r">
-              <span className="name-r">Ms. Adil</span>
+              <span className="name-r">MSilpa Dey</span>
               <span className="rank-r">Lab technicians</span>
               {/* <a className="link" rel="noopener noreferrer" target="_blank" href="http://aig.com">http://aig.com</a> */}
             </cite>
@@ -54,12 +54,12 @@ export default class SimpleSlider extends Component {
         <div>
           <div className="comment-box-r">
             <div className="quotes-r"><img src={quotes} alt="quotes" /></div>
-            <div className="comment-r">I’m very pleased with the work provided by contractor. He called to verify appointment times, arrived on time and was very professional and personable. The quality of work was timely and top notch.</div>
+            <div className="comment-r">I’m very pleased to tell everyone about this website its amazing i can sell and purchase property within days here this is very good plateform for me love to come here again and again</div>
           </div>
           <div className="person-area-r">
             <img className="photo-r" src={person3} alt="person3" />
             <cite className="adress-r">
-              <span className="name-r">Ahmed Raza</span>
+              <span className="name-r">Anirban Sikdar</span>
               <span className="rank-r">Sales Manager</span>
               {/* <a className="link" rel="noopener noreferrer" target="_blank" href="https://woocommerce.com/">https://woocommerce.com/</a> */}
             </cite>

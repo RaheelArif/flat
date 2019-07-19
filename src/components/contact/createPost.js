@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
+import { connect } from 'react-redux';
 
 
 
@@ -28,6 +29,10 @@ class CreatePost extends Component {
         data.append("image",document.getElementById("image").files[0])
         data.append("date",Date.now());
         data.append("approved",this.props.approved)
+        if(this.props.user._id){
+
+            data.append("user",JSON.stringify(this.props.user))
+        }
         fetch("http://localhost:900/property/addproperty",{
             method:"POST",
             body:data
@@ -37,15 +42,16 @@ class CreatePost extends Component {
             if(res.success)
             {
                 console.log(res)
+                alert("request sended to admin")
                 this.setState({
-                    Title:undefined,
-                    Price:undefined,
-                    Description:undefined,
-                    Bedrooms:undefined,
-                    Bathrooms:undefined,
-                    City:undefined,
-                    Purpose:undefined,
-                    Time:undefined
+                    Title:"",
+                    Price:"",
+                    Description:"",
+                    Bedrooms:"",
+                    Bathrooms:"",
+                    City:"",
+                    Purpose:"",
+                    Time:""
                 })
             }
         })
@@ -79,6 +85,7 @@ class CreatePost extends Component {
                     required={true}
                     id="Title"
                     onChange={this.handleChange}
+                    value={this.state.Title}
                 />
                 <TextField
                     id="outlined-full-width"
@@ -94,6 +101,7 @@ class CreatePost extends Component {
                     required={true}
                     onChange={this.handleChange}
                     id="Price"
+                    value={this.state.Price}
                 />
                 <TextField
                     id="outlined-multiline-flexible"
@@ -107,9 +115,11 @@ class CreatePost extends Component {
                     required
                     onChange={this.handleChange}
                     id="Description"
+                    value={this.state.Description}
                 />
                 <select className="create-prodect-select" required id="Bedrooms"
                                     onChange={this.handleChange}
+                                    value={this.state.Bedrooms}
                 >
                     <option value="" selected disabled hidden>Bedrooms</option>
                     <option value="1">1</option>
@@ -119,7 +129,7 @@ class CreatePost extends Component {
                     <option value="5">5</option>
                 </select>
                 <select className="create-prodect-select" required id="Bathrooms"
-                
+                value={this.state.Bathrooms}
                 onChange={this.handleChange}>
                     <option value="" selected disabled hidden>Bathrooms</option>
                     <option value="1">1</option>
@@ -130,6 +140,7 @@ class CreatePost extends Component {
                 </select>
                 <select className="create-prodect-select" required id="Purpose"
                                     onChange={this.handleChange}
+                                    value={this.state.Purpose}
                 >
                      <option value="" selected disabled hidden>Purpose</option>
                     <option value="Rent">Rent</option>
@@ -137,6 +148,7 @@ class CreatePost extends Component {
                 </select>
                 <select className="create-prodect-select" required id="Time"
                                     onChange={this.handleChange}
+                                    value={this.state.Time}
                 >
                      <option value="" selected disabled hidden>Time Limit</option>
                     <option value="1">1 Month</option>
@@ -147,6 +159,7 @@ class CreatePost extends Component {
                 </select>
                  <select className="create-prodect-select" required id="City"
                                      onChange={this.handleChange}
+                                     value={this.state.City}
                  >
                       <option value="" selected disabled hidden>City</option>
                     <option value="Mumbai">Mumbai</option>
@@ -155,7 +168,7 @@ class CreatePost extends Component {
                     <option value="Chennai">Chennai</option>
                     <option value="Kolkata" >Kolkata</option>
                 </select>
-                <input type="file" name="image" style={{margin:"20px"}} required id="image"/>
+                <input type="image" name="image" style={{margin:"20px"}} required id="image"/>
                 
      <button className="search-btn" type="submit" >Add property</button>
                 
@@ -163,4 +176,9 @@ class CreatePost extends Component {
         );
     }
 }
-export default CreatePost;
+const mapStateToProps=(store)=>{
+    return{
+        user:store.userReducer
+    }
+}
+export default connect(mapStateToProps)(CreatePost);
