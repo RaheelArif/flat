@@ -8,7 +8,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import InboxIcon from '@material-ui/icons/MoveToInbox';
 import DraftsIcon from '@material-ui/icons/Drafts';
 import SendIcon from '@material-ui/icons/Send';
-import {Link} from "react-router-dom"
+import {Link} from "react-router-dom";
+import { connect } from "react-redux";
 const StyledMenu = withStyles({
   paper: {
     border: '1px solid #d3d4d5',
@@ -40,7 +41,7 @@ const StyledMenuItem = withStyles(theme => ({
   },
 }))(MenuItem);
 
-export default function CustomizedMenus() {
+ function CustomizedMenus(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   function handleClick(event) {
@@ -50,6 +51,14 @@ export default function CustomizedMenus() {
   function handleClose() {
     setAnchorEl(null);
   }
+  const logout=()=>{
+    if(props.admin._id)
+    {
+      
+                    props.dispatch({type:"DELETE_ADMIN",payload:{}})
+                    alert("logout");
+    }
+    }
 
   return (
     <div>
@@ -60,7 +69,7 @@ export default function CustomizedMenus() {
         onClick={handleClick}
         className="admin-btn"
       >
-admin name
+{props.admin.name}
       </Button>
       <StyledMenu
         id="customized-menu"
@@ -82,7 +91,7 @@ admin name
           </ListItemIcon>
           <Link to="/messages">     <ListItemText primary="Messages" /></Link>
         </StyledMenuItem>
-        <StyledMenuItem>
+        <StyledMenuItem onClick={logout}>
           <ListItemIcon>
             <InboxIcon />
           </ListItemIcon>
@@ -92,3 +101,9 @@ admin name
     </div>
   );
 }
+const mapStateToProps=(store)=>{
+  return{
+    admin:store.adminReducer
+  }
+}
+export default connect(mapStateToProps)(CustomizedMenus)

@@ -69,13 +69,23 @@ const useStyles = theme => ({
           <Link className="nav-link" to="/"> <Button color="inherit">Home</Button></Link>
           <Link className="nav-link" to="/about"> <Button color="inherit">About us</Button></Link>
           <Link className="nav-link" to="/Contact"> <Button color="inherit">Contact</Button></Link>
+          {
+            this.props.user._id&&
+          <User name={this.props.user.name}/> ||
+          this.props.admin._id&&
+          <Admin />||
           <Link className="nav-link" to="/Login"> <Button color="inherit">Login</Button></Link>
-           <Admin />
-          <User /> 
+          }
         </Toolbar>
       </AppBar>
     </div>
   );
         }
 }
-export default connect()(withStyles(useStyles)(Header));
+const mapStateToProps=(store)=>{
+  return{
+    user:store.userReducer,
+    admin:store.adminReducer
+  }
+}
+export default connect(mapStateToProps)(withStyles(useStyles)(Header));

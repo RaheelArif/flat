@@ -9,6 +9,10 @@ class Login extends Component {
         user: undefined,
      
     }
+     admin={_id: "9088098211Wasd@#sad",
+         email: "kushal@gmail.com",
+          password: "kushal123",
+         name: "kushal",}
     handleChange = (e) => {
         this.setState({
 
@@ -18,6 +22,43 @@ class Login extends Component {
 
     handleClick = (e) => {
         e.preventDefault();
+        if(this.state.email===this.admin.email&&this.state.password===this.admin.password)
+        {
+            this.props.dispatch({type:"ADD_ADMIN",payload:this.admin})
+            alert("loggedin");
+            this.props.history.push("/");
+            fetch("http://localhost:900/property/getall",{
+                method:"POST",
+                body:"",
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+            .then(res=>res.json())
+            .then(res=>{
+                if(res.success)
+                {
+                    this.props.dispatch({type:"ADD_Property",payload:res.properties})
+                }
+            })
+            .catch(err=>console.log(err));
+            fetch("http://localhost:900/messages/getallmessages",{
+                method:"POST",
+                body:"",
+                headers:{
+                    "Content-Type":"application/json"
+                }
+            })
+            .then(res=>res.json())
+            .then(res=>{
+                if(res.success)
+                {
+                    this.props.dispatch({type:"ADD_MESSAGE",payload:res.messages})
+                }
+            })
+            .catch(err=>console.log(err));
+        }
+        else{
         const newUser = {
             email: this.state.email,
             password: this.state.password,
@@ -41,6 +82,7 @@ class Login extends Component {
                     email: undefined,
                     password: undefined,
                 })
+                console.log(res.user)
                 this.props.history.push("/");
             }
             else
@@ -48,7 +90,9 @@ class Login extends Component {
         })
         .catch(err=>console.log(err));
     }
+    }
     render() {
+        
         return (
             <div className="login-container">
                 <div className="login-container2">
