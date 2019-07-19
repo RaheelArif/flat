@@ -11,7 +11,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import PendingRewuest from './components/header/admin/pendingRequests';
 import Messages from './components/header/admin/Messages';
 import viewFlatCard from './components/flatCard/viewFlatCard';
-import CreatePost from "./components/contact/createPost"
+import CreatePost from "./components/contact/createPost";
+import Bids from "./components/header/admin/bids"
 function App() {
   return (
     <BrowserRouter>
@@ -27,6 +28,7 @@ function App() {
          <Route path="/messages" component= {Messages} />
          <Route path="/createpostadmin" render={()=><CreatePost approved={true}/>} />
          <Route path="/propert/:id" component={viewFlatCard} />
+         <Route path="/bids" component={Bids} />
 
         </Switch>
         <Footer />

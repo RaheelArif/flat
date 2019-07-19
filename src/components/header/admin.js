@@ -91,7 +91,7 @@ const StyledMenuItem = withStyles(theme => ({
           <Link style={{textDecoration:"none" , color: "black"}} to="/messages">     <ListItemText primary="Messages" /></Link>
         </StyledMenuItem>       
          <StyledMenuItem>
-          <Link style={{textDecoration:"none" , color: "black"}} to="/messages">     <ListItemText primary="Bids" /></Link>
+          <Link style={{textDecoration:"none" , color: "black"}} to="/bids">     <ListItemText primary="Bids" /></Link>
         </StyledMenuItem>
 
         <StyledMenuItem onClick={logout}>
