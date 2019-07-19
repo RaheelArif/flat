@@ -11,7 +11,7 @@ bidRoute.post("/addbid", (req, res) => {
     })
 })
 bidRoute.post("/getallbids", (req, res) => {
-    bid.find({ property: req.body.property }, (err, bids) => {
+    bid.find({}, (err, bids) => {
         if (err)
             res.json({ success: false })
         else

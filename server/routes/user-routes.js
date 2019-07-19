@@ -47,5 +47,13 @@ userRoute.post("/authenticate", (req, res) => {
     else
         res.json({ success: false, });
 })
+userRoute.post("/alluser", (req, res) => {
+    user.find({},(err,user)=>{
+        if(err)
+        res.json({ success: false, });
+        else
+        res.json({ success: true, user: user });
 
+    })
+})
 module.exports = userRoute;

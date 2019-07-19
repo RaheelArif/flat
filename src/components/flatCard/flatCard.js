@@ -14,8 +14,8 @@ const {property}=props;
  if(property.title.length > 20){
      property.title = property.title.slice(0, 25) + "...";
  } 
- if(property.description.length > 90){
-  property.description = property.description.slice(0, 87) + "...";
+ if(property.description.length > 30){
+  property.description = property.description.slice(0, 27) + "...";
 } 
 
 const deleteprop=(property)=>{
@@ -83,7 +83,10 @@ const editprop=(property)=>{
         }
          {
           props.del_but&&
-              <button className="delete" onClick={()=>deleteprop(property)} >delete post</button>
+          <div>
+            <button className="delete" onClick={()=>deleteprop(property)} >delete post</button>
+            <Link style={{textDecoration:"none" , color: "black", padding: "10px", backgroundColor: "blue", borderRadius: "10px", color: "white"}} to={"/bids/"+property._id}>     bids</Link>
+          </div>
         }
       </CardActions>
       :null

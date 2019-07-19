@@ -28,7 +28,7 @@ function App() {
          <Route path="/messages" component= {Messages} />
          <Route path="/createpostadmin" render={()=><CreatePost approved={true}/>} />
          <Route path="/propert/:id" component={viewFlatCard} />
-         <Route path="/bids" component={Bids} />
+         <Route path="/bids/:id" component={Bids} />
 
         </Switch>
         <Footer />
