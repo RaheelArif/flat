@@ -4,10 +4,10 @@ import SearchBar from './searchBar';
 
 import '../../App.css';
 
-function SearchBG() {
+function SearchBG(props) {
   return (
     <div className="search-bg">
-    <SearchBar />
+    <SearchBar changeFilter={props.changeFilter}/>
   
     </div>
   );

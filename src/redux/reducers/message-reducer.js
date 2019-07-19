@@ -1,4 +1,4 @@
-const messageReducer = (state={}, action) => {
+const messageReducer = (state=[], action) => {
     switch (action.type) {
       case "ADD_MESSAGE":
         {

@@ -1,4 +1,4 @@
-const bidReducer = (state={}, action) => {
+const bidReducer = (state=[], action) => {
     switch (action.type) {
       case "ADD_BID":
         {

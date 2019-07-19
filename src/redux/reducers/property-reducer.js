@@ -1,15 +1,23 @@
-const propertyReducer = (state={}, action) => {
+const propertyReducer = (state=[], action) => {
     switch (action.type) {
       case "ADD_Property":
         {
-          return action.payload
+          return action.payload;
         }
-      case "DELETE_Property":
-        
-            return state.filter(property=>{
-                 if(property._id!==action.payload._id)
-                 return property;
-             })
+      case "DELETE_PROPERTY":{
+        return state.filter(program=>{
+             if(program._id!=action.payload._id)
+             return program;
+         })
+     }
+     case "EDIT_PROPERTY":{
+      return state.filter(program=>{
+           if(program._id==action.payload._id)
+           return action.payload;
+           else
+           return program
+       })
+   }
          
       default:
         return state

@@ -7,9 +7,9 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import {Grid } from "@material-ui/core";
 import {Link} from "react-router-dom"
+import {connect } from "react-redux"
 
-
-export default function MediaCard(props) {
+ function MediaCard(props) {
 const {property}=props;
  if(property.title.length > 20){
      property.title = property.title.slice(0, 25) + "...";
@@ -17,6 +17,38 @@ const {property}=props;
  if(property.description.length > 90){
   property.description = property.description.slice(0, 87) + "...";
 } 
+
+const deleteprop=(property)=>{
+  fetch("http://localhost:900/property/deleteproperty",{
+    method:"DELETE",
+    body:JSON.stringify(property),
+    headers:{
+        "Content-Type":"application/json"
+    }
+}).then(res=>res.json()).then(res=>{
+    if(res.success)
+    {
+        props.dispatch({type:"DELETE_PROPERTY",payload:property})
+    }
+}).catch(err=>console.log(err));
+}
+const editprop=(property)=>{
+  property.approved=true;
+  fetch("http://localhost:900/property/editproperty",{
+    method:"PUT",
+    body:JSON.stringify(property),
+    headers:{
+        "Content-Type":"application/json"
+    }
+}).then(res=>res.json()).then(res=>{
+    if(res.success)
+    {
+
+        props.dispatch({type:"EDIT_PROPERTY",payload:property})
+        alert("approved");
+    }
+}).catch(err=>console.log(err));
+}
   return (
     <Grid item lg={4} md={4} xl={4}>
     <Card className="flat-card">
@@ -47,11 +79,11 @@ const {property}=props;
 (props.approve_but||props.del_but)?<CardActions>
         {
           props.approve_but&&
-              <button className="approve">approve post</button>
+              <button className="approve" onClick={()=>editprop(property)}>approve post</button>
         }
          {
           props.del_but&&
-              <button className="delete">delete post</button>
+              <button className="delete" onClick={()=>deleteprop(property)} >delete post</button>
         }
       </CardActions>
       :null
@@ -60,3 +92,4 @@ const {property}=props;
     </Grid>
   );
 }
+export default connect()(MediaCard)
